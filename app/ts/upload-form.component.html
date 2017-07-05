@@ -1,0 +1,18 @@
+<!--KAIKKI TEKSTIN CONIG TIEDOSTON JA appcoNPONENT LUOKAN KAUTTA EI SUORAAN. KORJATTTAVA -->
+<div>
+    <h1>{{inputmetadata}}</h1>
+    <form #planForm="ngForm">
+      <div>
+        <label for="planNumber">Numero</label>
+        <input type="text" class="form-control" id="planNumber" required>
+      </div>
+ 
+      <div>
+        <label for="planSubnumber">Alanumero</label>
+        <input type="text" class="form-control" id="planSubnumber">
+      </div>
+ 
+      <button *ngIf (clikc)="onSave()">Tallenna</button>
+ 
+    </form>
+</div>

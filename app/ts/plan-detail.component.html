@@ -1,0 +1,10 @@
+    <div *ngIf="plan">
+      <h2>Suunnitelman {{plan.planNumber}} tiedot!</h2>
+      <div><label>Versio : </label>{{plan.planSubcode}}</div>
+      <div><label>Suunnitelma : </label>{{plan.title}}</div>
+      <div> <label>Selite: </label>{{plan.title}}</div>
+      <div *ngIf="plan.planAcceptor"> <label>Hyväksyjä: </label>{{plan.planAcceptor}}</div>
+      
+    </div>
+
+    <!--  <input [(ngModel)]="plan.title" placeholder="name"/> -->
