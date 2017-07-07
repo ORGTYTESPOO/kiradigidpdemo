@@ -1,0 +1,12 @@
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <td>Title</td><td>planDesc</td><td>planNumber</td><td>planSubcode </td>          
+        </tr>
+    </thead>
+        <tbody>
+        <tr *ngFor="#v of plans" (click)="onSelect(v)" >
+            <td>{{v.title}}</td><td>{{v.planDesc}}</td><td>{{v.planNumber}}</td><td>{{v.planSubcode}}</td>
+        </tr>
+    </tbody>
+</table>
