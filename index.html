@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tietoportaalin ominaisuuksia -demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Load libraries (Note: IE required polyfills, in this exact order_ -->
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
+
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+    <!-- Configure SystemJS -->
+    <script>
+        System.config({
+            packages: {
+                app: {
+                    format: 'register',
+                    defaultExtension: 'js'
+                }
+            }
+        });
+        System.import('app/js/main').then(null, console.error.bind(console));
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Millaisia ominaisuuksia portaalissa voisi olla</h2>
+        <img src= "https://kakedigi.files.wordpress.com/2017/03/cropped-kake_lapinakyva.png">
+        <TABLE class="table table-hover">
+
+            <TR>
+                <td>
+                    <A HREF="piirustusluettelo.html">Piirustusluettelo</A>
+                </td>
+            </TR>
+            <TR>
+                <td>
+                    <A HREF="upload.html">Lataa suunnitelma</A>
+                </td>
+            </TR>
+        </TABLE>
+    </div>
+</body>
+
+</html>

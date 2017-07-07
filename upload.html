@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<title>Drag drop uploading></title>
+<link rel="stylesheet" href="global.css">
+</head>
+<body>
+ <TABLE class="table table-hover">
+
+            <TR>
+                <td>
+                    <A HREF="index.html">Pääsivu</A>
+                </td>
+            </TR>
+            <TR>
+                <td>
+                    <A HREF="piirustusluettelo.html">Piirustusluettelo</A>
+                </td>
+            </TR>
+        </TABLE>
+
+<div id="uploads"></div>
+<div class="dropzone" id="dropzone">Raahaa tänne :)</div>
+
+<form class="form-inline">
+<button type="submit" class="btn btn-default">Lähetä</button>
+</form>
+<script>
+	(function(){
+		var dropzone = document.getElementById('dropzone');
+		
+		var upload = function(files){
+			var formData = new FormData();
+				xhr = new XMLHttpRequest(),
+				x = 0;
+				
+			//gonna loop through every file that was dragged	
+			
+			for(x = 0; x < files.length; x = x + 1){
+				formData.append('file['+x+']',files[x], x + '.pdf');
+			}
+			
+		    //formData.append('faili',files[0],'faili.pdf');
+			//formData.append('length',x);
+
+			
+			console.log(formData);
+			
+			    xhr.onload = function(e){
+				var data = this.responseText;
+				//console.log(data);
+			}
+			
+			
+			
+			xhr.open('post','http://localhost:8013/kos.js');
+			xhr.setRequestHeader('Content-type','multipart/form-data');
+			xhr.send(formData);
+		}
+		
+		dropzone.ondrop = function(e){
+			e.preventDefault();
+			this.className = 'dropzone';
+			console.log(e.dataTransfer.files);
+			document.getElementById("dropzone").innerHTML = "Fileet odottavat lähetystä!";
+			upload(e.dataTransfer.files);
+		};
+		
+		dropzone.ondragover = function(){
+			this.className = 'dropzone dragover';
+			return false;
+		};
+		
+		dropzone.ondragleave = function(){
+			this.className = 'dropzone';
+			return false;
+		};
+	}());
+
+</script>
+</body>
+</html>
